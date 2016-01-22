@@ -1,0 +1,24 @@
+{
+  "name": "PhaserES6Webpack",
+  "version": "1.0.0",
+  "description": "",
+  "author": "leandro cabrera <leandcabrera@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack",
+    "deploy": "webpack --config webpack.production.config.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^5.0.0-beta6",
+    "babel-loader": "^6.2.1",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
+    "browser-sync": "^2.11.0",
+    "browser-sync-webpack-plugin": "^1.0.1",
+    "standard": "^5.4.1",
+    "webfontloader": "^1.6.20",
+    "webpack": "^1.12.11"
+  }
+}
