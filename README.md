@@ -21,7 +21,7 @@ Navigate into your workspace directory.
 
 Run:
 
-```git clone```
+```git clone https://github.com/lean/phaser-es6-webpack.git```
 
 ## 2. Install node.js and npm:
 
