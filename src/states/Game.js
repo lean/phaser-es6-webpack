@@ -1,3 +1,4 @@
+/* globals __DEV__ */
 import Phaser from 'phaser'
 import Mushroom from '../sprites/Mushroom'
 import {setResponsiveWidth} from '../utils'
@@ -30,5 +31,4 @@ export default class extends Phaser.State {
       this.game.debug.spriteInfo(this.mushroom, 32, 32)
     }
   }
-
 }
