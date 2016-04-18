@@ -1,3 +1,5 @@
+import 'pixi'
+import 'p2'
 import Phaser from 'phaser'
 
 import BootState from './states/Boot'
@@ -20,4 +22,4 @@ class Game extends Phaser.Game {
   }
 }
 
-new Game()
+window.game = new Game()
