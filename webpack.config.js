@@ -19,7 +19,7 @@ module.exports = {
       path.resolve(__dirname, 'src/main.js')
     ]
   },
-  devtool: 'cheap-source-map',
+  devtool: 'source-map',
   output: {
     pathinfo: true,
     path: path.resolve(__dirname, 'dist'),
