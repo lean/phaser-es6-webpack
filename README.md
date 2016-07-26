@@ -53,7 +53,7 @@ This will run a server so you can run the game in a browser.
 
 Open your browser and enter localhost:3000 into the address bar.
 
-Also this will start a watch process, so u can change the source and the process will recompile and refresh the browser
+Also this will start a watch process, so you can change the source and the process will recompile and refresh the browser
 
 
 ## Compile for deployment:
