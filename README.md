@@ -56,7 +56,7 @@ Open your browser and enter localhost:3000 into the address bar.
 Also this will start a watch process, so you can change the source and the process will recompile and refresh the browser
 
 
-## Compile for deployment:
+## Build for deployment:
 
 Run:
 
