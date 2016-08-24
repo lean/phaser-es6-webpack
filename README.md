@@ -37,10 +37,6 @@ Navigate to the cloned repo’s directory.
 
 Run:
 
-```npm install webpack -g```
-
-and
-
 ```npm install```
 
 ## 4. Run the development server:
