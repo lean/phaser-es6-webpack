@@ -31,7 +31,7 @@ Run:
 https://nodejs.org/en/
 
 
-## 3. Install Webpack and dependencies:
+## 3. Install dependencies:
 
 Navigate to the cloned repo’s directory.
 
