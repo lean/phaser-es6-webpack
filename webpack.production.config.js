@@ -28,6 +28,10 @@ module.exports = {
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.optimize.UglifyJsPlugin({
       drop_console: true,
+      minimize: true,
+      output: {
+        comments: false
+      },
       compress: {
         warnings: false
       }
