@@ -1,3 +1,5 @@
+'use strict';
+
 /* globals __DEV__ */
 import Phaser from 'phaser'
 import Mushroom from '../sprites/Mushroom'
