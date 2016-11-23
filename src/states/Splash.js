@@ -1,3 +1,5 @@
+'use strict';
+
 import Phaser from 'phaser'
 import { centerGameObjects } from '../utils'
 
