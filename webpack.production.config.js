@@ -16,7 +16,9 @@ module.exports = {
     app: [
       'babel-polyfill',
       path.resolve(__dirname, 'src/main.js')
-    ]
+    ],
+    vendor: ['pixi', 'p2', 'phaser', 'webfontloader']
+
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -37,7 +39,8 @@ module.exports = {
       }
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin()
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),    
   ],
   module: {
     loaders: [
@@ -49,7 +52,9 @@ module.exports = {
     ]
   },
   node: {
-    fs: 'empty'
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   },
   resolve: {
     alias: {

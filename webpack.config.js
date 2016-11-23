@@ -17,9 +17,10 @@ module.exports = {
     app: [
       'babel-polyfill',
       path.resolve(__dirname, 'src/main.js')
-    ]
+    ],
+    vendor: ['pixi', 'p2', 'phaser', 'webfontloader']
   },
-  devtool: 'source-map',
+  devtool: 'cheap-source-map',
   output: {
     pathinfo: true,
     path: path.resolve(__dirname, 'dist'),
@@ -29,10 +30,10 @@ module.exports = {
   watch: true,
   plugins: [
     definePlugin,
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
     new BrowserSyncPlugin({
       host: process.env.IP || 'localhost',
       port: process.env.PORT || 3000,
-      open: false,
       server: {
         baseDir: ['./', './build']
       }
@@ -47,7 +48,9 @@ module.exports = {
     ]
   },
   node: {
-    fs: 'empty'
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   },
   resolve: {
     alias: {
