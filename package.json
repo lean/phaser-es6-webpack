@@ -9,7 +9,7 @@
     "deploy": "webpack --config webpack.production.config.js",
     "test": "standard"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
