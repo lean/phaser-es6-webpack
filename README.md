@@ -7,12 +7,11 @@
 
 
 ## Features
-- JavaScript Standard Style
+- ESLINT with JavaScript Standard Style configuration
 - Next generation of Javascript
 - Webpack ready
 - Multiple browser testing
 - WebFont Loader
-- Responsive utilities!
 
 
 # Setup
