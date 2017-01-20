@@ -22,7 +22,7 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "expose-loader": "^0.7.1",
-    "webpack": "^1.14.0"
+    "webpack": "^2.2.0"
   },
   "dependencies": {
     "phaser-ce": "^2.7.3",
