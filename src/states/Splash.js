@@ -2,9 +2,9 @@ import Phaser from 'phaser'
 import { centerGameObjects } from '../utils'
 
 export default class extends Phaser.State {
-  init () {}
+  init() {}
 
-  preload () {
+  preload() {
     this.loaderBg = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loaderBg')
     this.loaderBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'loaderBar')
     centerGameObjects([this.loaderBg, this.loaderBar])
@@ -16,7 +16,7 @@ export default class extends Phaser.State {
     this.load.image('mushroom', 'assets/images/mushroom2.png')
   }
 
-  create () {
+  create() {
     this.state.start('Game')
   }
 

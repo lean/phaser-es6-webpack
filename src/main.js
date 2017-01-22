@@ -10,7 +10,7 @@ import config from './config'
 
 class Game extends Phaser.Game {
 
-  constructor () {
+  constructor() {
     const docElement = document.documentElement
     const width = docElement.clientWidth > config.gameWidth ? config.gameWidth : docElement.clientWidth
     const height = docElement.clientHeight > config.gameHeight ? config.gameHeight : docElement.clientHeight

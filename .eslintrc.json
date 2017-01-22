@@ -3,5 +3,9 @@
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module"
+  },
+  "rules": {
+    "space-before-function-paren": ["error", "never"],
+    "arrow-parens": 0
   }
 }
