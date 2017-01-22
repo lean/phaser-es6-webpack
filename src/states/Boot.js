@@ -2,13 +2,13 @@ import Phaser from 'phaser'
 import WebFont from 'webfontloader'
 
 export default class extends Phaser.State {
-  init () {
+  init() {
     this.stage.backgroundColor = '#EDEEC9'
     this.fontsReady = false
     this.fontsLoaded = this.fontsLoaded.bind(this)
   }
 
-  preload () {
+  preload() {
     WebFont.load({
       google: {
         families: ['Bangers']
@@ -23,13 +23,13 @@ export default class extends Phaser.State {
     this.load.image('loaderBar', './assets/images/loader-bar.png')
   }
 
-  render () {
+  render() {
     if (this.fontsReady) {
       this.state.start('Splash')
     }
   }
 
-  fontsLoaded () {
+  fontsLoaded() {
     this.fontsReady = true
   }
 
