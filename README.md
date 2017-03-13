@@ -30,13 +30,15 @@ Run:
 https://nodejs.org/en/
 
 
-## 3. Install dependencies:
+## 3. Install dependencies (optionally you could install [yarn](https://yarnpkg.com/)):
 
 Navigate to the cloned repo’s directory.
 
 Run:
 
-```npm install```
+```npm install``` 
+
+or if you choose yarn, just run ```yarn```
 
 ## 4. Run the development server:
 

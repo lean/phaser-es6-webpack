@@ -32,5 +32,4 @@ export default class extends Phaser.State {
   fontsLoaded () {
     this.fontsReady = true
   }
-
 }
