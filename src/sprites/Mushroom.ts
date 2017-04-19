@@ -1,12 +1,18 @@
 import * as Phaser from 'phaser-ce';
 
-export default class extends Phaser.Sprite {
-  constructor ({ game, x, y, asset }) {
-    super(game, x, y, asset)
-    this.anchor.setTo(0.5)
+export class Mushroom extends Phaser.Sprite {
+  constructor (
+    public game: any,
+    public x: number,
+    public y: number,
+    public key: string | Phaser.RenderTexture | Phaser.BitmapData | PIXI.Texture,
+  ) {
+    super(game, x, y, key);
+    this.key = this.key;
+    this.anchor.setTo(0.5);
   }
 
-  update () {
-    this.angle += 1
+  public update(): void {
+    this.angle ++;
   }
 }
