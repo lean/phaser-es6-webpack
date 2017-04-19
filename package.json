@@ -7,10 +7,12 @@
   "scripts": {
     "dev": "webpack",
     "deploy": "webpack --config webpack.production.config.js",
-    "test": "eslint ./src/**/**.js"
+    "test": "eslint ./src/**/**.js",
+    "start": "webpack-dev-server --progress --colors"
   },
   "license": "MIT",
   "devDependencies": {
+    "awesome-typescript-loader": "^3.1.2",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.20.0",
@@ -22,6 +24,9 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "expose-loader": "^0.7.1",
+    "tslint": "^5.1.0",
+    "tslint-loader": "^3.5.2",
+    "typescript": "^2.2.2",
     "webpack": "^2.2.0"
   },
   "dependencies": {
