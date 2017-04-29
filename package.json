@@ -5,12 +5,13 @@
   "author": "leandro cabrera <leandcabrera@gmail.com>",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack",
-    "deploy": "webpack --config webpack.production.config.js",
+    "dev": "webpack --progress ",
+    "deploy": "webpack --config webpack.production.config.js --progress",
     "test": "eslint ./src/**/**.js"
   },
   "license": "MIT",
   "devDependencies": {
+    "awesome-typescript-loader": "^3.1.2",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-polyfill": "^6.20.0",
@@ -22,6 +23,11 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
     "expose-loader": "^0.7.1",
+    "tslint": "^5.1.0",
+    "tslint-eslint-rules": "^4.0.0",
+    "tslint-loader": "^3.5.2",
+    "typescript": "^2.2.2",
+    "vrsource-tslint-rules": "^4.0.1",
     "webpack": "^2.2.0"
   },
   "dependencies": {
