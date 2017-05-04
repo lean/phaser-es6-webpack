@@ -11,21 +11,21 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
-    "babel-polyfill": "^6.20.0",
-    "babel-preset-es2015": "^6.18.0",
-    "browser-sync": "^2.18.6",
-    "browser-sync-webpack-plugin": "^1.1.3",
-    "eslint": "^3.13.1",
-    "eslint-config-standard": "^7.0.1",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
-    "expose-loader": "^0.7.1",
-    "webpack": "^2.2.0"
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.18.8",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "expose-loader": "^0.7.3",
+    "webpack": "^2.5.0"
   },
   "dependencies": {
-    "phaser-ce": "^2.7.3",
+    "phaser-ce": "^2.7.7",
     "webfontloader": "^1.6.27"
   }
 }
