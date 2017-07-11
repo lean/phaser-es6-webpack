@@ -1,0 +1,5 @@
+{
+  "globalDevDependencies": {
+    "phaser": "github:photonstorm/phaser-ce/typescript/typings.json"
+  }
+}

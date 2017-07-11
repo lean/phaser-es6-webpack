@@ -15,7 +15,7 @@ module.exports = {
   entry: {
     app: [
       'babel-polyfill',
-      path.resolve(__dirname, 'src/main.js')
+      path.resolve(__dirname, 'src/main.ts')
     ],
     vendor: ['pixi', 'p2', 'phaser', 'webfontloader']
 
@@ -40,6 +40,7 @@ module.exports = {
   module: {
     rules: [
       { test: /\.js$/, use: ['babel-loader'], include: path.join(__dirname, 'src') },
+      { test: /\.ts?$/, use: 'ts-loader', exclude: /node_modules/ },
       { test: /pixi\.js/, use: ['expose-loader?PIXI'] },
       { test: /phaser-split\.js$/, use: ['expose-loader?Phaser'] },
       { test: /p2\.js/, use: ['expose-loader?p2'] }

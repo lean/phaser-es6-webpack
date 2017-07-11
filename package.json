@@ -25,6 +25,9 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "expose-loader": "^0.7.3",
+    "has-flag": "^2.0.0",
+    "ts-loader": "^2.2.2",
+    "typescript": "^2.4.1",
     "webpack": "^2.6.1"
   },
   "dependencies": {
