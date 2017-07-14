@@ -1,6 +1,11 @@
 import 'pixi'
 import 'p2'
-import Phaser from 'phaser'
+import * as Phaser from 'phaser-ce'
+
+declare global {
+  interface Window { game: any; }
+}
+window.game = window.game || {};
 
 import BootState from './states/Boot'
 import SplashState from './states/Splash'

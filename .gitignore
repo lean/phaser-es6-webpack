@@ -1,5 +1,4 @@
 node_modules/
 dist/
 .vscode/
-
-yarn.lock
+*.log
