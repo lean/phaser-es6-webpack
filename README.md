@@ -13,6 +13,8 @@
 - Multiple browser testing
 - WebFont Loader
 
+## Typescript 
+If you need typescript support checkout the *typscript* branch. Thanks to @MatsMaker
 
 # Setup
 To use this bootstrap you’ll need to install a few things before you have a working copy of the project.
