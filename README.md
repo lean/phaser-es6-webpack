@@ -9,8 +9,8 @@
 ## Features
 - ESLINT with JavaScript Standard Style configuration
 - Next generation of Javascript
+- Browsers are automatically updated as you change project files
 - Webpack ready
-- Multiple browser testing
 - WebFont Loader
 
 ## Typescript 
