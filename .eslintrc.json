@@ -8,13 +8,7 @@
   "env": {
     "browser": true
   },
-  "rules": {
-    "import/no-unresolved": [2]
-  },
   "globals": {
-    "phaser": true
-  },
-  "settings": {
-    "import/core-modules": [ "phaser", "pixi", "p2" ]
+    "__DEV__": true
   }
 }

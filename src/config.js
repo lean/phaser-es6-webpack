@@ -1,5 +1,9 @@
+import Phaser from 'phaser'
+
 export default {
-  gameWidth: 760,
-  gameHeight: 400,
+  type: Phaser.AUTO,
+  parent: 'content',
+  width: 800,
+  height: 600,
   localStorageName: 'phaseres6webpack'
 }
