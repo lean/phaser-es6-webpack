@@ -21,9 +21,13 @@ module.exports = {
   watch: true,
   plugins: [
     definePlugin,
+    new webpack.DefinePlugin({
+      CANVAS_RENDERER: JSON.stringify(true),
+      WEBGL_RENDERER: JSON.stringify(true)
+    }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor' /* chunkName= */,
-      filename: 'vendor.bundle.js' /* filename= */
+      name: 'vendor',
+      filename: 'vendor.bundle.js'
     }),
     new BrowserSyncPlugin({
       host: process.env.IP || 'localhost',
@@ -41,10 +45,5 @@ module.exports = {
         include: path.join(__dirname, 'src')
       }
     ]
-  },
-  node: {
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty'
   }
 }
