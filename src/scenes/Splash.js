@@ -1,5 +1,4 @@
 import Phaser from 'phaser'
-import { centerGameObjects } from '../utils'
 
 export default class extends Phaser.Scene {
   constructor () {
@@ -14,6 +13,9 @@ export default class extends Phaser.Scene {
   }
 
   create () {
-    this.scene.start('GameScene')
+    // this.scene.start('GameScene')
+    console.log(this.load.state)
   }
+
+  update () {}
 }
