@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 // Phaser webpack config
@@ -31,6 +32,23 @@ module.exports = {
   plugins: [
     definePlugin,
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'/* chunkName= */, filename: 'vendor.bundle.js'/* filename= */}),
+    new HtmlWebpackPlugin({
+      filename: '../index.html',
+      template: './src/index.html',
+      chunks: ['vendor', 'app'],
+      chunksSortMode: 'manual',
+      minify: {
+        removeAttributeQuotes: false,
+        collapseWhitespace: false,
+        html5: false,
+        minifyCSS: false,
+        minifyJS: false,
+        minifyURLs: false,
+        removeComments: false,
+        removeEmptyAttributes: false
+      },
+      hash: false
+    }),
     new BrowserSyncPlugin({
       host: process.env.IP || 'localhost',
       port: process.env.PORT || 3000,
