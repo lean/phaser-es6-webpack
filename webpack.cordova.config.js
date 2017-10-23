@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // Phaser webpack config
 var phaserModule = path.join(__dirname, '/node_modules/phaser-ce/')
@@ -23,13 +24,13 @@ module.exports = {
 
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'www/dist'),
     publicPath: './dist/',
     filename: 'bundle.js'
   },
   plugins: [
     definePlugin,
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['www']),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.optimize.UglifyJsPlugin({
       drop_console: true,
@@ -39,10 +40,18 @@ module.exports = {
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'/* chunkName= */, filename: 'vendor.bundle.js'/* filename= */}),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, 'assets/**/*'),
+        to: path.resolve(__dirname, 'www')
+      }
+    ]),
     new HtmlWebpackPlugin({
-      filename: 'www/index.html',
+      filename: path.resolve(__dirname, 'www/index.html'),
       template: './src/index.html',
-      chunks: ['cordova', 'vendor', 'app', 'index'],
+      chunks: [
+        'vendor', 'app'
+      ],
       chunksSortMode: 'manual',
       minify: {
         removeAttributeQuotes: true,

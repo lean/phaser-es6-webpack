@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta http-equiv="cleartype" content="on">
-
+    <meta name="format-detection" content="telephone=no">
     <style>
         html,
         body {
@@ -21,7 +21,9 @@
 <body>
 
     <div id="content"></div>
-
+    <!-- this file will throw an error because it doesn't exist yet, but it is necessary to let him empty, 
+    cordova will generate it in the future. If you don't need the cordova's features just remove it -->
+    <script type="text/javascript" src="cordova.js"></script>
 </body>
 
 </html>

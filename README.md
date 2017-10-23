@@ -61,9 +61,42 @@ Run:
 
 This will optimize and minimize the compiled bundle.
 
+## Deploy for cordova:
+Make sure to update config.xml with your informations. (name/description...)
+
+More informations about the cordova configuration:
+https://cordova.apache.org/docs/en/latest/config_ref/
+
+There is 3 platforms actually tested and supported : 
+- browser
+- ios
+- android
+
+First run (ios example):
+
+```
+npm run cordova
+cordova add platform ios
+cordova run ios
+```
+
+Update (ios example):
+
+```
+npm run cordova
+cordova update platform ios
+cordova run ios
+```
+
+This will optimize and minimize the compiled bundle.
+
 ## Credits
 Big thanks to these great repos:
 
 https://github.com/belohlavek/phaser-es6-boilerplate
 
 https://github.com/cstuncsik/phaser-es6-demo
+
+## Contributors
+
+https://github.com/RenaudROHLINGER

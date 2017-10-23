@@ -1,36 +1,53 @@
 {
-  "name": "PhaserES6Webpack",
-  "version": "1.0.0",
-  "description": "",
-  "author": "leandro cabrera <leandcabrera@gmail.com>",
-  "main": "index.js",
-  "scripts": {
-    "dev": "webpack",
-    "deploy": "webpack --config webpack.production.config.js",
-    "test": "eslint ./src/**/**.js"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-eslint": "^7.2.3",
-    "babel-loader": "^7.1.1",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "browser-sync": "^2.18.13",
-    "browser-sync-webpack-plugin": "^1.2.0",
-    "clean-webpack-plugin": "^0.1.17",
-    "eslint": "^4.3.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "expose-loader": "^0.7.3",
-    "html-webpack-plugin": "^2.30.1",
-    "webpack": "^3.4.1"
-  },
-  "dependencies": {
-    "phaser-ce": "^2.8.3",
-    "webfontloader": "^1.6.28"
-  }
+    "name": "PhaserES6Webpack",
+    "version": "1.1.0",
+    "description": "",
+    "author": "leandro cabrera <leandcabrera@gmail.com>",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack",
+        "deploy": "webpack --config webpack.production.config.js",
+        "cordova": "webpack --config webpack.cordova.config.js",
+        "test": "eslint ./src/**/**.js"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-loader": "^7.1.1",
+        "babel-polyfill": "^6.23.0",
+        "babel-preset-es2015": "^6.24.1",
+        "browser-sync": "^2.18.13",
+        "browser-sync-webpack-plugin": "^1.2.0",
+        "clean-webpack-plugin": "^0.1.17",
+        "copy-webpack-plugin": "^4.2.0",
+        "cordova": "^7.1.0",
+        "eslint": "^4.3.0",
+        "eslint-config-standard": "^10.2.1",
+        "eslint-plugin-import": "^2.7.0",
+        "eslint-plugin-node": "^5.1.1",
+        "eslint-plugin-promise": "^3.5.0",
+        "eslint-plugin-standard": "^3.0.1",
+        "expose-loader": "^0.7.3",
+        "html-webpack-plugin": "^2.30.1",
+        "webpack": "^3.4.1"
+    },
+    "dependencies": {
+        "cordova-android": "^6.2.3",
+        "cordova-browser": "^4.1.0",
+        "cordova-ios": "^4.4.0",
+        "cordova-plugin-whitelist": "^1.3.2",
+        "phaser-ce": "^2.8.3",
+        "webfontloader": "^1.6.28"
+    },
+    "cordova": {
+        "platforms": [
+            "android",
+            "browser",
+            "ios"
+        ],
+        "plugins": {
+            "cordova-plugin-whitelist": {}
+        }
+    }
 }
