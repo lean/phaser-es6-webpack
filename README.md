@@ -62,7 +62,7 @@ Run:
 This will optimize and minimize the compiled bundle.
 
 ## Deploy for cordova:
-Make sure to update config.xml with your informations. (name/description...)
+Make sure to uncomment the cordova.js file in the src/index.html and to update config.xml with your informations. (name/description...)
 
 More informations about the cordova configuration:
 https://cordova.apache.org/docs/en/latest/config_ref/
