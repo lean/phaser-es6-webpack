@@ -40,9 +40,9 @@ module.exports = {
     }),
     new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'/* chunkName= */, filename: 'vendor.bundle.js'/* filename= */}),
     new HtmlWebpackPlugin({
-      filename: 'www/index.html',
+      filename: '../index.html',
       template: './src/index.html',
-      chunks: ['cordova', 'vendor', 'app', 'index'],
+      chunks: ['vendor', 'app'],
       chunksSortMode: 'manual',
       minify: {
         removeAttributeQuotes: true,
