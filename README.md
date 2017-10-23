@@ -76,7 +76,7 @@ First run (ios example):
 
 ```
 npm run cordova
-cordova add platform ios
+cordova platform add ios
 cordova run ios
 ```
 
@@ -84,7 +84,7 @@ Update (ios example):
 
 ```
 npm run cordova
-cordova update platform ios
+cordova platform update ios
 cordova run ios
 ```
 
