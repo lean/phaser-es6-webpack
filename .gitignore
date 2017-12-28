@@ -5,5 +5,4 @@ plugins/
 dist/
 .vscode/
 *.log
-package-lock.json
 /index.html
