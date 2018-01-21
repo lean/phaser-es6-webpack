@@ -4,24 +4,14 @@ import Phaser from 'phaser'
 export default class extends Phaser.State {
   init () {}
   preload () {
-    this.game.load.spritesheet('catDude', 'assets/catSprites.png', 64, 64)
-    this.game.load.tilemap('tilemap', 'assets/StackWorld.json', null, Phaser.Tilemap.TILED_JSON)
-    this.game.load.image('tiles', 'assets/Platformer Art Complete Pack/Base Pack/Tiles/tiles_spritesheet.png')
-    this.game.load.image('backgroundTiles', 'assets/Platformer Art Complete Pack/Base Pack/Items/items_spritesheet.png')
-    this.game.load.image('candyLandTiles', 'assets/Platformer Art Complete Pack/Candy expansion/sheet.png')
-    this.game.load.image('binaryTreeTiles', 'assets/Platformer Art Complete Pack/Mushroom expansion/PNG/spritesheet.png')
-    this.game.load.image('industrialTiles', 'assets/Platformer Art Complete Pack/Request pack/sheet.png')
-    this.game.load.image('icelandTiles', 'assets/Platformer Art Complete Pack/Ice expansion/sheet.png')
-    this.game.load.image('buildingsTiles', 'assets/Platformer Art Complete Pack/Buildings expansion/sheet.png')
-    this.game.load.image('clock', 'assets/Platformer Art Complete Pack/Buildings expansion/Tiles/clock.png')
+      //  Firefox doesn't support mp3 files, so use ogg
+    this.game.load.audio('bgMusic', 'assets/chipsong.ogg')
+    this.game.load.audio('clockMusic', 'assets/Powerup.wav')
+    this.game.load.audio('jumpSound', 'assets/jumpland44100.mp3')
   }
 
   create () {
-
-    //Start the Arcade Physics systems
-    this.game.physics.startSystem(Phaser.Physics.ARCADE)
-
-    // // //Change the background colour
+     //Change the background colour
     this.game.stage.backgroundColor = "#a9f0ff"
 
     //Add the tilemap and tileset image. The first parameter in addTilesetImage
@@ -32,10 +22,10 @@ export default class extends Phaser.State {
     this.map.addTilesetImage('background', 'backgroundTiles')
     this.map.addTilesetImage('candyland', 'candyLandTiles')
     this.map.addTilesetImage('binaryTreeLand', 'binaryTreeTiles')
+    this.map.addTilesetImage('iceland', 'icelandTiles')
     this.map.addTilesetImage('industrial', 'industrialTiles')
     this.map.addTilesetImage('buildings', 'buildingsTiles')
 
-    //console.log(this.map)
     //Add both the background and ground layers. We won't be doing anything with the
     //GroundLayer though
     this.groundLayer = this.map.createLayer('GroundLayer')
@@ -46,21 +36,29 @@ export default class extends Phaser.State {
     //Change the world size to match the size of this layer
     this.groundLayer.resizeWorld()
 
+    // Adds background music and loops
+    this.music = this.game.add.audio('bgMusic')
+    this.clockMusic = this.game.add.audio('clockMusic')
+    this.jumpSound = this.game.add.audio('jumpSound')
+    this.music.play()
+    this.music.loopFull()
 
      //Add the sprite to the game and enable arcade physics on it
-    this.catDude = this.game.add.sprite(300, 0, 'catDude')
+    this.catDude = this.game.add.sprite(15, 0, 'catDude')
     this.catDude.anchor.setTo(0.5, 0.5)
 
-
-    this.clock = this.game.add.sprite(0, 0, 'clock')
-
+    this.clock = this.game.add.sprite(-50, -10, 'clock')
     this.clock.anchor.setTo(0.5, 0.5)
 
+    // Enables physics
     this.game.physics.arcade.enable(this.clock)
     this.game.physics.arcade.enable(this.catDude)
 
-    this.catDude.frame = 0
+    // Adjust collision size for sprite
+    this.catDude.body.width = 40
+    this.catDude.body.height = 55
 
+    // adds animation frames
     this.catDude.animations.add('idle', [0, 1, 2, 3], 12, true)
     this.catDude.animations.add('right', [17, 18, 19, 20, 21, 22, 23], 24, true)
     this.catDude.animations.add('left', [17, 18, 19, 20, 21, 22, 23], 12, true)
@@ -89,7 +87,7 @@ export default class extends Phaser.State {
       // This just gives each star a slightly random bounce value
       clock.body.bounce.y = 0.7 + Math.random() * 0.2
     }
-
+      // Creates countdown timer
       const updateTimer = () => {
 
         var currentTime = new Date();
@@ -121,7 +119,7 @@ export default class extends Phaser.State {
 
       // Create a custom timer
       this.startTime = new Date()
-      this.totalTime = 30
+      this.totalTime = 20
       this.timeElapsed = 0
 
       createTimer()
@@ -132,13 +130,20 @@ export default class extends Phaser.State {
     update () {
 
     const collectClocks = (player, clock) => {
+      // plays jingle
+      this.clockMusic.play()
       // Removes the gem from the screen
-      clock.kill();
-      //  Adds 10 seconds to the total time
+      clock.kill()
+      // Displays 5 extra seconds
+      this.addTime = this.game.add.text(100, 75, '+5 sec', {font: "15px Arial", fill: "red"});
+      this.addTime.fixedToCamera = true
+      // Removes text after 5 second
+      this.game.time.events.add(1000, () => { this.addTime.destroy() })
+      //  Adds 5 seconds to the total time
       this.totalTime += 5
     }
 
-    if (this.timeElapsed >= this.totalTime){
+    if (this.timeElapsed >= this.totalTime) {
       this.catDude.kill()
       this.loseLabel = this.game.add.text(100, 100, 'YOU LOSE', {font: "100px Arial", fill: "#000"});
       this.loseLabel.fixedToCamera = true;
@@ -157,7 +162,6 @@ export default class extends Phaser.State {
     //Calls collectGem if player overlaps gem
     this.game.physics.arcade.overlap(this.catDude, this.clock, collectClocks, null, this);
 
-
     //Sets controls of Cat Dude
     if (this.cursors.right.isDown) {
         this.catDude.scale.x = 1;
@@ -170,6 +174,10 @@ export default class extends Phaser.State {
         this.catDude.body.velocity.x = -350;
 
     } else if (this.cursors.up.isDown) {
+        for (var i = 0; i < 1; i++) {
+          this.jumpSound.play()
+        }
+
         this.catDude.animations.play('flipRight')
         this.catDude.body.bounce.y = 0.2;
         this.catDude.body.velocity.y = -200;
@@ -181,6 +189,8 @@ export default class extends Phaser.State {
     }
   }
 
-  // render () {
+  render () {
+    // this.game.debug.body(this.catDude)
+  }
 
 }

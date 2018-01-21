@@ -13,7 +13,16 @@ export default class extends Phaser.State {
     //
     // load your assets
     //
-    //this.load.image('catDude', 'assets/catSprites.png')
+    this.game.load.spritesheet('catDude', 'assets/catSprites.png', 64, 64)
+    this.game.load.tilemap('tilemap', 'assets/StackWorld.json', null, Phaser.Tilemap.TILED_JSON)
+    this.game.load.image('tiles', 'assets/Platformer Art Complete Pack/Base Pack/Tiles/tiles_spritesheet.png')
+    this.game.load.image('backgroundTiles', 'assets/Platformer Art Complete Pack/Base Pack/Items/items_spritesheet.png')
+    this.game.load.image('candyLandTiles', 'assets/Platformer Art Complete Pack/Candy expansion/sheet.png')
+    this.game.load.image('binaryTreeTiles', 'assets/Platformer Art Complete Pack/Mushroom expansion/PNG/spritesheet.png')
+    this.game.load.image('industrialTiles', 'assets/Platformer Art Complete Pack/Request pack/sheet.png')
+    this.game.load.image('icelandTiles', 'assets/Platformer Art Complete Pack/Ice expansion/sheet.png')
+    this.game.load.image('buildingsTiles', 'assets/Platformer Art Complete Pack/Buildings expansion/sheet.png')
+    this.game.load.image('clock', 'assets/Platformer Art Complete Pack/Buildings expansion/Tiles/clock.png')
   }
 
   create () {
