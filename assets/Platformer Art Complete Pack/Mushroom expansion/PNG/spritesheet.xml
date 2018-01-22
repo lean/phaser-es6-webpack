@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="sprites.png">
+	<!--
+	Created with ShoeBox
+	http://renderhjs.net/shoebox/
+	-->
+	<SubTexture name="shroomBrownAltLeft.png"	x="213"	y="71"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownAltMid.png"	x="426"	y="142"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownAltMidAlt.png"	x="426"	y="71"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownAltRight.png"	x="426"	y="0"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownAltSpotsLeft.png"	x="355"	y="426"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownAltSpotsMid.png"	x="355"	y="355"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownAltSpotsMidAlt.png"	x="355"	y="284"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownAltSpotsRight.png"	x="355"	y="213"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownLeft.png"	x="355"	y="142"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownMid.png"	x="355"	y="71"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownMidAlt.png"	x="355"	y="0"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownRight.png"	x="284"	y="426"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownSpotsLeft.png"	x="284"	y="355"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownSpotsMid.png"	x="284"	y="284"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownSpotsMidAlt.png"	x="284"	y="213"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomBrownSpotsRight.png"	x="284"	y="142"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomRedAltLeft.png"	x="284"	y="71"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomRedAltMid.png"	x="284"	y="0"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomRedAltMidAlt.png"	x="213"	y="426"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomRedAltRight.png"	x="213"	y="355"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomRedLeft.png"	x="213"	y="284"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomRedMid.png"	x="213"	y="213"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomRedMidAlt.png"	x="213"	y="142"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomRedRight.png"	x="426"	y="213"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomTanAltLeft.png"	x="213"	y="0"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomTanAltMid.png"	x="142"	y="426"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomTanAltMidAlt.png"	x="142"	y="355"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomTanAltRight.png"	x="142"	y="284"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomTanLeft.png"	x="142"	y="213"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomTanMid.png"	x="142"	y="142"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomTanMidAlt.png"	x="142"	y="71"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="shroomTanRight.png"	x="142"	y="0"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="stem.png"	x="71"	y="426"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="stemBase.png"	x="71"	y="355"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="stemBaseAlt.png"	x="71"	y="284"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="stemCrown.png"	x="71"	y="213"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="stemShroom.png"	x="71"	y="142"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="stemTop.png"	x="71"	y="71"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="stemTopAlt.png"	x="71"	y="0"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="stemVine.png"	x="0"	y="426"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="tallShroom_brown.png"	x="0"	y="355"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="tallShroom_red.png"	x="0"	y="284"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="tallShroom_tan.png"	x="0"	y="213"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="tinyShroom_brown.png"	x="0"	y="142"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="tinyShroom_red.png"	x="0"	y="71"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+	<SubTexture name="tinyShroom_tan.png"	x="0"	y="0"	width="70"	height="70" frameX="-0" frameY="-0" frameWidth="70" frameHeight="70"/>
+</TextureAtlas>
