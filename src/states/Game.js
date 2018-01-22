@@ -4,10 +4,6 @@ import Phaser from 'phaser'
 export default class extends Phaser.State {
   init () {}
   preload () {
-      //  Firefox doesn't support mp3 files, so use ogg
-    this.game.load.audio('bgMusic', 'assets/chipsong.ogg')
-    this.game.load.audio('clockMusic', 'assets/Powerup.wav')
-    this.game.load.audio('jumpSound', 'assets/jumpland44100.mp3')
   }
 
   create () {
@@ -26,12 +22,16 @@ export default class extends Phaser.State {
     this.map.addTilesetImage('industrial', 'industrialTiles')
     this.map.addTilesetImage('buildings', 'buildingsTiles')
 
+
     //Add both the background and ground layers. We won't be doing anything with the
     //GroundLayer though
     this.groundLayer = this.map.createLayer('GroundLayer')
     this.backgroundlayer = this.map.createLayer('BackgroundLayer')
+    this.killlayer = this.map.createLayer('KillLayer')
+
     //Before you can use the collide function you need to set what tiles can collide
     this.map.setCollisionBetween(1, 1000, true, 'GroundLayer', true)
+
 
     //Change the world size to match the size of this layer
     this.groundLayer.resizeWorld()
@@ -40,6 +40,7 @@ export default class extends Phaser.State {
     this.music = this.game.add.audio('bgMusic')
     this.clockMusic = this.game.add.audio('clockMusic')
     this.jumpSound = this.game.add.audio('jumpSound')
+    this.coinSound = this.game.add.audio('coinSound')
     this.music.play()
     this.music.loopFull()
 
@@ -50,8 +51,21 @@ export default class extends Phaser.State {
     this.clock = this.game.add.sprite(-50, -10, 'clock')
     this.clock.anchor.setTo(0.5, 0.5)
 
+    this.bronzeCoin = this.game.add.sprite(-50, -10, 'bronzeCoin')
+    this.bronzeCoin.anchor.setTo(0.5, 0.5)
+
+    this.silverCoin = this.game.add.sprite(-50, -10, 'silverCoin')
+    this.silverCoin.anchor.setTo(0.5, 0.5)
+
+    this.goldCoin = this.game.add.sprite(-50, -10, 'goldCoin')
+    this.goldCoin.anchor.setTo(0.5, 0.5)
+
+
     // Enables physics
     this.game.physics.arcade.enable(this.clock)
+    this.game.physics.arcade.enable(this.bronzeCoin)
+    this.game.physics.arcade.enable(this.silverCoin)
+    this.game.physics.arcade.enable(this.goldCoin)
     this.game.physics.arcade.enable(this.catDude)
 
     // Adjust collision size for sprite
@@ -71,10 +85,46 @@ export default class extends Phaser.State {
      //Enable cursor keys so we can create some controls
      this.cursors = this.game.input.keyboard.createCursorKeys()
 
-    //Creates a group of Clocks
+    //Creates a group of items
     this.clock = this.game.add.group()
+    this.bronzeCoin = this.game.add.group()
+    this.silverCoin = this.game.add.group()
+    this.goldCoin = this.game.add.group()
 
+    this.bronzeCoin.enableBody = true
+    this.silverCoin.enableBody = true
+    this.goldCoin.enableBody = true
     this.clock.enableBody = true
+
+    //  Here we'll create 30 of them randomly spread apart
+    for (var i = 0; i < 30; i++) {
+      // Create a gem inside of the 'gems' group
+      let bronzeCoin = this.bronzeCoin.create(this.game.world.randomX, this.game.world.randomY, 'bronzeCoin')
+      // Let gravity do its thing
+      bronzeCoin.body.gravity.y = 600
+      // This just gives each star a slightly random bounce value
+      bronzeCoin.body.bounce.y = 0.7 + Math.random() * 0.2
+    }
+
+    //  Here we'll create 25 of them randomly spread apart
+    for (var i = 0; i < 25; i++) {
+      // Create a gem inside of the 'gems' group
+      let silverCoin = this.silverCoin.create(this.game.world.randomX, this.game.world.randomY, 'silverCoin')
+      // Let gravity do its thing
+      silverCoin.body.gravity.y = 600
+      // This just gives each star a slightly random bounce value
+      silverCoin.body.bounce.y = 0.7 + Math.random() * 0.2
+    }
+
+    //  Here we'll create 15 of them randomly spread apart
+    for (var i = 0; i < 15; i++) {
+      // Create a gem inside of the 'gems' group
+      let goldCoin = this.goldCoin.create(this.game.world.randomX, this.game.world.randomY, 'goldCoin')
+      // Let gravity do its thing
+      goldCoin.body.gravity.y = 600
+      // This just gives each star a slightly random bounce value
+      goldCoin.body.bounce.y = 0.7 + Math.random() * 0.2
+    }
 
     //  Here we'll create 20 of them randomly spread apart
     for (var i = 0; i < 50; i++) {
@@ -113,8 +163,14 @@ export default class extends Phaser.State {
     }
 
       const createTimer = () => {
-        this.timeLabel = this.game.add.text(20, 20, "00:00", {font: "50px Arial", fill: "#000"});
+        this.timeLabel = this.game.add.text(20, 20, "00:00", {font: "50px Gloria Hallelujah", fill: "#000"});
         this.timeLabel.fixedToCamera = true;
+      }
+
+      const createCounter = () => {
+        this.totalValue = 0;
+        this.countLabel = this.game.add.text(800, 20, `${this.totalValue} Points`, {font: "50px Gloria Hallelujah", fill: "#000"});
+        this.countLabel.fixedToCamera = true;
       }
 
       // Create a custom timer
@@ -123,31 +179,48 @@ export default class extends Phaser.State {
       this.timeElapsed = 0
 
       createTimer()
+      createCounter()
 
       this.gameTimer = this.game.time.events.loop(100, () => { updateTimer() })
+
+      this.rules = this.game.add.text(20, 90, 'Find the key before time runs out! Collect clocks for time and coins for points! Good luck!', {font: '16px Gloria Hallelujah', fill: '#000'})
     }
 
     update () {
 
+      //function for clock item
     const collectClocks = (player, clock) => {
       // plays jingle
       this.clockMusic.play()
       // Removes the gem from the screen
       clock.kill()
       // Displays 5 extra seconds
-      this.addTime = this.game.add.text(100, 75, '+5 sec', {font: "15px Arial", fill: "red"});
+      this.addTime = this.game.add.text(100, 75, '+5 sec', {font: "20px Gloria Hallelujah", fill: "#F00"});
       this.addTime.fixedToCamera = true
       // Removes text after 5 second
-      this.game.time.events.add(1000, () => { this.addTime.destroy() })
+      this.game.time.events.add(1000, () => { this.addTime.kill() })
+
       //  Adds 5 seconds to the total time
       this.totalTime += 5
     }
 
+    const collectCoins = (player, coin) => {
+      this.coinSound.play()
+      coin.kill()
+      var value
+      if (coin.key === 'bronzeCoin') { value = 5 }
+      if (coin.key === 'silverCoin') { value = 10 }
+      if (coin.key === 'goldCoin') { value = 15 }
+      this.totalValue += value
+      this.countLabel.text = `${this.totalValue} Points`
+    }
+
+    // If you run out of time this displays lose message
     if (this.timeElapsed >= this.totalTime) {
       this.catDude.kill()
-      this.loseLabel = this.game.add.text(100, 100, 'YOU LOSE', {font: "100px Arial", fill: "#000"});
+      this.loseLabel = this.game.add.text(100, 100, 'YOU LOST', {font: "100px Gloria Hallelujah", fill: "#000"});
       this.loseLabel.fixedToCamera = true;
-      this.timeLabel.text = "Lose"
+      this.timeLabel.text = "Lost"
     }
 
       //Set some physics on the sprite
@@ -157,10 +230,17 @@ export default class extends Phaser.State {
 
     //Make the sprite collide with the ground layer
     this.game.physics.arcade.collide(this.clock, this.groundLayer)
+    this.game.physics.arcade.collide(this.goldCoin, this.groundLayer)
+    this.game.physics.arcade.collide(this.bronzeCoin, this.groundLayer)
+    this.game.physics.arcade.collide(this.silverCoin, this.groundLayer)
     this.game.physics.arcade.collide(this.catDude, this.groundLayer)
 
     //Calls collectGem if player overlaps gem
-    this.game.physics.arcade.overlap(this.catDude, this.clock, collectClocks, null, this);
+    this.game.physics.arcade.overlap(this.catDude, this.clock, collectClocks, null, this)
+    this.game.physics.arcade.overlap(this.catDude, this.bronzeCoin, collectCoins, null, this)
+    this.game.physics.arcade.overlap(this.catDude, this.silverCoin, collectCoins, null, this)
+    this.game.physics.arcade.overlap(this.catDude, this.goldCoin, collectCoins, null, this)
+
 
     //Sets controls of Cat Dude
     if (this.cursors.right.isDown) {
@@ -180,13 +260,14 @@ export default class extends Phaser.State {
 
         this.catDude.animations.play('flipRight')
         this.catDude.body.bounce.y = 0.2;
-        this.catDude.body.velocity.y = -200;
+        this.catDude.body.velocity.y = -250;
 
     } else {
         this.catDude.animations.play('idle')
         this.catDude.scale.x = 1;
         this.catDude.body.velocity.x = 0;
     }
+
   }
 
   render () {

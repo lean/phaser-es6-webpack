@@ -23,6 +23,13 @@ export default class extends Phaser.State {
     this.game.load.image('icelandTiles', 'assets/Platformer Art Complete Pack/Ice expansion/sheet.png')
     this.game.load.image('buildingsTiles', 'assets/Platformer Art Complete Pack/Buildings expansion/sheet.png')
     this.game.load.image('clock', 'assets/Platformer Art Complete Pack/Buildings expansion/Tiles/clock.png')
+    this.game.load.audio('bgMusic', 'assets/Catch The Mystery.WAV')
+    this.game.load.audio('clockMusic', 'assets/Powerup.wav')
+    this.game.load.audio('jumpSound', 'assets/swish-1.wav')
+    this.game.load.audio('coinSound', 'assets/Pickup_Coin.wav')
+    this.game.load.image('goldCoin', 'assets/Platformer Art Complete Pack/Base Pack/Items/coinGold.png')
+    this.game.load.image('bronzeCoin', 'assets/Platformer Art Complete Pack/Base Pack/Items/coinBronze.png')
+    this.game.load.image('silverCoin', 'assets/Platformer Art Complete Pack/Base Pack/Items/coinSilver.png')
   }
 
   create () {
