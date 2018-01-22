@@ -41,6 +41,7 @@ export default class extends Phaser.State {
     this.clockMusic = this.game.add.audio('clockMusic')
     this.jumpSound = this.game.add.audio('jumpSound')
     this.coinSound = this.game.add.audio('coinSound')
+    this.gameover = this.game.add.audio('gameover')
     this.music.play()
     this.music.loopFull()
 
@@ -163,13 +164,13 @@ export default class extends Phaser.State {
     }
 
       const createTimer = () => {
-        this.timeLabel = this.game.add.text(20, 20, "00:00", {font: "50px Gloria Hallelujah", fill: "#000"});
+        this.timeLabel = this.game.add.text(20, 20, "00:00", {font: "60px Indie Flower", fill: "#F00"});
         this.timeLabel.fixedToCamera = true;
       }
 
       const createCounter = () => {
         this.totalValue = 0;
-        this.countLabel = this.game.add.text(800, 20, `${this.totalValue} Points`, {font: "50px Gloria Hallelujah", fill: "#000"});
+        this.countLabel = this.game.add.text(900, 20, `${this.totalValue} Points`, {font: "60px Indie Flower", fill: "#F00"});
         this.countLabel.fixedToCamera = true;
       }
 
@@ -183,44 +184,59 @@ export default class extends Phaser.State {
 
       this.gameTimer = this.game.time.events.loop(100, () => { updateTimer() })
 
-      this.rules = this.game.add.text(20, 90, 'Find the key before time runs out! Collect clocks for time and coins for points! Good luck!', {font: '16px Gloria Hallelujah', fill: '#000'})
+      this.rules = this.game.add.text(20, 75, 'Find the key before the time runs out!', {font: '35px Indie Flower', fill: '#000'})
+
+      this.otherrules = this.game.add.text(830, 75, 'Collect clocks to gain 5 seconds and coins for points!', {font: '35px Indie Flower', fill: '#000'})
+
+      this.lastrules = this.game.add.text(2200, 75, 'Good luck!', {font: '35px Indie Flower', fill: '#000'})
+
     }
 
     update () {
 
       //function for clock item
     const collectClocks = (player, clock) => {
+      if (this.addTime) { this.addTime.kill() }
+
       // plays jingle
       this.clockMusic.play()
       // Removes the gem from the screen
       clock.kill()
       // Displays 5 extra seconds
-      this.addTime = this.game.add.text(100, 75, '+5 sec', {font: "20px Gloria Hallelujah", fill: "#F00"});
+      this.addTime = this.game.add.text(160, 40, '+5 sec', {font: "40px Indie Flower", fill: "#FFD700"});
+
       this.addTime.fixedToCamera = true
       // Removes text after 5 second
-      this.game.time.events.add(1000, () => { this.addTime.kill() })
+      this.game.time.events.add(500, () => { this.addTime.kill() })
 
       //  Adds 5 seconds to the total time
       this.totalTime += 5
     }
 
+
     const collectCoins = (player, coin) => {
-      this.coinSound.play()
-      coin.kill()
-      var value
-      if (coin.key === 'bronzeCoin') { value = 5 }
-      if (coin.key === 'silverCoin') { value = 10 }
-      if (coin.key === 'goldCoin') { value = 15 }
-      this.totalValue += value
-      this.countLabel.text = `${this.totalValue} Points`
+        if (this.plusPoints) { this.plusPoints.kill() }
+        this.coinSound.play()
+        coin.kill()
+        var value
+        if (coin.key === 'bronzeCoin') { value = 5 }
+        if (coin.key === 'silverCoin') { value = 10 }
+        if (coin.key === 'goldCoin') { value = 15 }
+        this.plusPoints = this.game.add.text(800, 30, `+ ${value}`, {font: "40px Indie Flower", fill: "#FFD700"})
+        this.plusPoints.fixedToCamera = true
+        this.game.time.events.add(500, () => { this.plusPoints.kill() })
+        this.totalValue += value
+        this.countLabel.text = `${this.totalValue} Points`
     }
 
     // If you run out of time this displays lose message
     if (this.timeElapsed >= this.totalTime) {
-      this.catDude.kill()
-      this.loseLabel = this.game.add.text(100, 100, 'YOU LOST', {font: "100px Gloria Hallelujah", fill: "#000"});
+      this.gameover.play()
+      this.game.time.events.add(100, () => { this.gameover.destroy() })
+      this.loseLabel = this.game.add.text(400, 200, 'YOU LOST', {font: "100px Indie Flower", fill: "#000"});
       this.loseLabel.fixedToCamera = true;
       this.timeLabel.text = "Lost"
+      this.catDude.kill();
     }
 
       //Set some physics on the sprite

@@ -27,6 +27,7 @@ export default class extends Phaser.State {
     this.game.load.audio('clockMusic', 'assets/Powerup.wav')
     this.game.load.audio('jumpSound', 'assets/swish-1.wav')
     this.game.load.audio('coinSound', 'assets/Pickup_Coin.wav')
+    this.game.load.audio('gameover', 'assets/death.wav')
     this.game.load.image('goldCoin', 'assets/Platformer Art Complete Pack/Base Pack/Items/coinGold.png')
     this.game.load.image('bronzeCoin', 'assets/Platformer Art Complete Pack/Base Pack/Items/coinBronze.png')
     this.game.load.image('silverCoin', 'assets/Platformer Art Complete Pack/Base Pack/Items/coinSilver.png')
