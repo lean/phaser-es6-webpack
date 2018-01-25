@@ -1,4 +1,4 @@
-import Phaser from 'phaser'
+import Phaser from 'phaser-ce'
 import { centerGameObjects } from '../utils'
 
 export default class extends Phaser.State {

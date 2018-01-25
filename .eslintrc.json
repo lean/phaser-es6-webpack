@@ -15,6 +15,6 @@
     "phaser": true
   },
   "settings": {
-    "import/core-modules": ["phaser", "pixi", "p2"]
+    "import/core-modules": ["phaser-ce", "pixi", "p2"]
   }
 }
