@@ -90,6 +90,12 @@ cordova run ios
 
 This will optimize and minimize the compiled bundle.
 
+## Config:
+before you get to work you will surely want to check the config file. You could setup dimensions, webfonts, etc
+
+## Webfonts:
+In the config file you can specify which webfonts you want to include. In case you do not want to use webfonts simply leave the array empty
+
 ## Credits
 Big thanks to these great repos:
 
