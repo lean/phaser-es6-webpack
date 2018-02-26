@@ -13,7 +13,7 @@
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-eslint": "^8.0.0",
-    "babel-loader": "^7.1.1",
+    "babel-loader": "^7.1.3",
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.18.13",
@@ -25,10 +25,11 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "expose-loader": "^0.7.3",
+    "raw-loader": "^0.5.1",
     "webpack": "^3.4.1"
   },
   "dependencies": {
-    "phaser": "^3.0.0-beta.4",
+    "phaser": "^3.1.2",
     "webfontloader": "^1.6.28"
   }
 }

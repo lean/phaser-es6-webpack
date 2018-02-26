@@ -43,6 +43,10 @@ module.exports = {
         test: /\.js$/,
         use: ['babel-loader'],
         include: path.join(__dirname, 'src')
+      },
+      {
+        test: [ /\.vert$/, /\.frag$/ ],
+        use: 'raw-loader'
       }
     ]
   }

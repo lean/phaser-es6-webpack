@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "ES6"
+    },
+    "exclude": [
+        "node_modules",
+    ],
+    "include": [
+        "client/src/**/*",
+        "shared/*",
+        "node_modules/phaser-ce/*"
+    ]
+}
