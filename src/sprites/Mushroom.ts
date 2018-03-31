@@ -1,7 +1,7 @@
 import {Game, Sprite} from 'phaser-ce'
 
 interface props {
-  game: any,
+  game: Game,
   x: number,
   y: number,
   asset: string
