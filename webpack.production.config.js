@@ -39,7 +39,10 @@ module.exports = {
         comments: false
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' /* chunkName= */ , filename: 'js/vendor.bundle.js' /* filename= */ }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor' /* chunkName= */,
+      filename: 'js/vendor.bundle.js' /* filename= */ 
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html', // path.resolve(__dirname, 'build', 'index.html'),
       template: './src/index.html',
@@ -78,7 +81,12 @@ module.exports = {
     alias: {
       'phaser': phaser,
       'pixi': pixi,
-      'p2': p2
+      'p2': p2,
+      '@sprites': path.resolve(__dirname, 'src/sprites'),
+      '@states': path.resolve(__dirname, 'src/states'),
+      '@lang': path.resolve(__dirname, 'src/lang'),
+      '@config': path.resolve(__dirname, 'src/config'),
+      '@utils': path.resolve(__dirname, 'src/utils')
     }
   }
 }
