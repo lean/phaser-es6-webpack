@@ -83,7 +83,12 @@ module.exports = {
     alias: {
       'phaser': phaser,
       'pixi': pixi,
-      'p2': p2
+      'p2': p2,
+      '@sprites': path.resolve(__dirname, 'src/sprites'),
+      '@states': path.resolve(__dirname, 'src/states'),
+      '@lang': path.resolve(__dirname, 'src/lang'),
+      '@config': path.resolve(__dirname, 'src/config'),
+      '@utils': path.resolve(__dirname, 'src/utils')
     }
   }
 }
