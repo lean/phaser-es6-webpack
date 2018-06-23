@@ -12,6 +12,7 @@
 - Browsers are automatically updated as you change project files
 - Webpack ready
 - WebFont Loader
+- Multilanguaje support
 
 ## Typescript 
 If you need typescript support checkout the ```typescript``` branch. Thanks to @MatsMaker
