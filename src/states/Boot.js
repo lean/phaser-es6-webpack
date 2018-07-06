@@ -1,15 +1,15 @@
 import Phaser from 'phaser'
 import WebFont from 'webfontloader'
-import config from '../config';
+import config from '../config'
 
 export default class extends Phaser.State {
-  init() {
+  init () {
     this.stage.backgroundColor = '#EDEEC9'
     this.fontsReady = false
     this.fontsLoaded = this.fontsLoaded.bind(this)
   }
 
-  preload() {
+  preload () {
     if (config.webfonts.length) {
       WebFont.load({
         google: {
@@ -26,7 +26,7 @@ export default class extends Phaser.State {
     this.load.image('loaderBar', './assets/images/loader-bar.png')
   }
 
-  render() {
+  render () {
     if (config.webfonts.length && this.fontsReady) {
       this.state.start('Splash')
     }
@@ -35,7 +35,7 @@ export default class extends Phaser.State {
     }
   }
 
-  fontsLoaded() {
+  fontsLoaded () {
     this.fontsReady = true
   }
 }
