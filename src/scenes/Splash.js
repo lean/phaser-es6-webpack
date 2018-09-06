@@ -13,8 +13,7 @@ export default class extends Phaser.Scene {
   }
 
   create () {
-    // this.scene.start('GameScene')
-    console.log(this.load.state)
+    this.scene.start('GameScene')
   }
 
   update () {}
