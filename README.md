@@ -5,6 +5,7 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
+## Phaser 3 supported in this branch: https://github.com/lean/phaser-es6-webpack/tree/phaser3
 
 ## Features
 - ESLINT with JavaScript Standard Style configuration
