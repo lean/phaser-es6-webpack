@@ -3,6 +3,7 @@ var webpack = require('webpack')
 var CleanWebpackPlugin = require('clean-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
+var WorkboxPlugin = require('workbox-webpack-plugin')
 
 // Phaser webpack config
 var phaserModule = path.join(__dirname, '/node_modules/phaser-ce/')
@@ -58,8 +59,13 @@ module.exports = {
       hash: true
     }),
     new CopyWebpackPlugin([
-      { from: 'assets', to: 'assets' }
-    ])
+      { from: 'assets', to: 'assets' },
+      { from: 'src/manifest.json', to: './manifest.json' }
+    ]),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
+    })
   ],
   module: {
     rules: [
