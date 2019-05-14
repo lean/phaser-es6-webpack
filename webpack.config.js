@@ -54,6 +54,7 @@ module.exports = {
     tls: 'empty'
   },
   resolve: {
+    extensions: ['.ts', '.js', '.json'],
     alias: {
       'phaser': phaser,
       'pixi': pixi,
