@@ -3,9 +3,11 @@
 
 ![Phaser+ES6+Webpack](https://raw.githubusercontent.com/lean/phaser-es6-webpack/master/assets/images/phaser-es6-webpack.jpg)
 
+
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 ## Phaser 3 supported in this branch: https://github.com/lean/phaser-es6-webpack/tree/phaser3
+## Typescript supported in this branch: https://github.com/lean/phaser-es6-webpack/tree/typescript
 
 ## Features
 - ESLINT with JavaScript Standard Style configuration
