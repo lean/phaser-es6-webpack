@@ -1,8 +1,11 @@
-/* globals __DEV__ */
-import Phaser from 'phaser'
+declare var __DEV__: string;
+
+import * as Phaser from 'phaser-ce'
 import Mushroom from '../sprites/Mushroom'
 
 export default class extends Phaser.State {
+  mushroom: Mushroom;
+
   init () {}
   preload () {}
 
@@ -17,6 +20,8 @@ export default class extends Phaser.State {
     banner.anchor.setTo(0.5)
 
     this.mushroom = new Mushroom({
+      // Note: Phaser.State classes called from within Game class
+      // so this is bound to a Phaser.Game
       game: this,
       x: this.world.centerX,
       y: this.world.centerY,
