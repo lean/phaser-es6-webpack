@@ -5,10 +5,6 @@ import BackButton from '../../components/BackButton'
 export default class extends Phaser.State {
   init () { }
   preload () {
-    this.load.image('laptopBg', './assets/images/room-bg.png')
-    this.load.image('laptopZoom', './assets/images/laptop-zoom.png')
-    this.load.image('chrome', './assets/images/chrome-icon.png')
-    this.load.image('veracrypt', './assets/images/veracrypt-icon.png')
   }
 
   create () {
