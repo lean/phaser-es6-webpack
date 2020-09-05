@@ -1,36 +1,29 @@
 /* globals __DEV__ */
-import Phaser from 'phaser'
-import Mushroom from '../sprites/Mushroom'
-import lang from '../lang'
+import { State, Sprite, Text } from 'phaser'
+import Laptop from '../sprites/Laptop'
+import Overlay from '../sprites/Overlay'
 
-export default class extends Phaser.State {
+export default class extends State {
   init() { }
   preload() { }
 
   create() {
-    const bannerText = lang.text('welcome')
-    let banner = this.add.text(this.world.centerX, this.game.height - 80, bannerText, {
-      font: '40px Bangers',
-      fill: '#77BFA3',
-      smoothed: false
-    })
+    const bg = new Sprite(this.game, 0, 0, 'room');
+    this.game.add.existing(bg);
 
-    banner.padding.set(10, 16)
-    banner.anchor.setTo(0.5)
+    const laptop = new Laptop(this.game, 325, 427);
+    this.laptop = laptop;
+    this.game.add.existing(laptop);
 
-    this.mushroom = new Mushroom({
-      game: this.game,
-      x: this.world.centerX,
-      y: this.world.centerY,
-      asset: 'mushroom'
-    })
+    // laptop.input.enableDrag(true);
 
-    this.game.add.existing(this.mushroom)
+    const bgOverlay = new Overlay(this.game, 0, 0);
+    this.game.add.existing(bgOverlay);
+
+    laptop.onSelect.add(() => bgOverlay.show())
   }
 
   render() {
-    if (__DEV__) {
-      this.game.debug.spriteInfo(this.mushroom, 32, 32)
-    }
+    this.game.debug.spriteInfo(this.laptop, 32, 32);
   }
 }

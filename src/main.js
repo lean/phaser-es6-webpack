@@ -16,9 +16,8 @@ import config from './config'
 
 class Game extends Phaser.Game {
   constructor () {
-    const docElement = document.documentElement
-    const width = docElement.clientWidth > config.gameWidth ? config.gameWidth : docElement.clientWidth
-    const height = docElement.clientHeight > config.gameHeight ? config.gameHeight : docElement.clientHeight
+    const width = config.gameWidth
+    const height = config.gameHeight
 
     super(width, height, Phaser.CANVAS, 'content', null)
 
@@ -29,50 +28,10 @@ class Game extends Phaser.Game {
     this.state.add('SettingsScreen', settingsScreen, false)
     this.state.add('ContactsScreen', contactsScreen, false)
 
-    // with Cordova with need to wait that the device is ready so we will call the Boot state in another file
-    if (!window.cordova) {
-      this.state.start('Boot')
-    }
+    this.state.start('Boot')
   }
 }
 
 window.game = new Game()
 
 ChoiceWheelHelper.setGame(window.game)
-
-if (window.cordova) {
-  var app = {
-    initialize: function () {
-      document.addEventListener(
-        'deviceready',
-        this.onDeviceReady.bind(this),
-        false
-      )
-    },
-
-    // deviceready Event Handler
-    //
-    onDeviceReady: function () {
-      this.receivedEvent('deviceready')
-
-      // When the device is ready, start Phaser Boot state.
-      window.game.state.start('Boot')
-    },
-
-    receivedEvent: function (id) {
-      console.log('Received Event: ' + id)
-    }
-  }
-
-  app.initialize()
-}
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js').then(registration => {
-      console.log('SW registered: ', registration)
-    }).catch(registrationError => {
-      console.log('SW registration failed: ', registrationError)
-    })
-  })
-}
