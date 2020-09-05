@@ -14,7 +14,7 @@ class ChoiceWheel extends Phaser.Sprite {
       const btnLabel = game.make.text(
         x,
         y + (idx * BUTTONS_MARGIN) + 1,
-        option,
+        option.title,
         {
           font: 'bold 16px Arial',
           fill: '#FFFFFF'
