@@ -13,11 +13,13 @@ class ChoiceWheel extends Phaser.Sprite {
     this.onSelect = new Signal()
     options.forEach((option, idx) => {
       if(!ltr) {
+        const xAdjusted = x + TRIANGLE_WIDTH + BUTTONS_HORIZONTAL_PADDING / 2,
+              yAdjusted = y - ((25 + 3) * options.length / 2)
         const btnGroup = game.add.group()
         btnGroup.inputEnableChildren = true
         const btnLabel = game.make.text(
-          x,
-          y + (idx * BUTTONS_MARGIN) + 1,
+          xAdjusted,
+          yAdjusted + (idx * BUTTONS_MARGIN) + 1,
           option.title,
           {
             font: 'bold 16px Arial',
@@ -40,8 +42,8 @@ class ChoiceWheel extends Phaser.Sprite {
         btnBgBmp.ctx.rect(TRIANGLE_WIDTH, 0, (btnLabel.width + BUTTONS_HORIZONTAL_PADDING + TRIANGLE_WIDTH), btnLabel.height)
         btnBgBmp.ctx.fill()
         const btnBg = game.make.sprite(
-          x - 9 - TRIANGLE_WIDTH,
-          y + idx * BUTTONS_MARGIN,
+          xAdjusted - 9 - TRIANGLE_WIDTH,
+          yAdjusted + idx * BUTTONS_MARGIN,
           btnBgBmp
         )
         btnGroup.add(btnBg)
@@ -52,11 +54,13 @@ class ChoiceWheel extends Phaser.Sprite {
         game.add.existing(btnGroup)
         this.btnGroups.push(btnGroup)
       } else {
+        const xAdjusted = x,
+              yAdjusted = y - ((25 + 3) * options.length / 2)
         const btnGroup = game.add.group()
         btnGroup.inputEnableChildren = true
         const btnLabel = game.make.text(
-          x + 10,
-          y + (idx * BUTTONS_MARGIN) + 1,
+          xAdjusted + BUTTONS_HORIZONTAL_PADDING / 2,
+          yAdjusted + (idx * BUTTONS_MARGIN) + 1,
           option.title,
           {
             font: 'bold 16px Arial',
@@ -79,8 +83,8 @@ class ChoiceWheel extends Phaser.Sprite {
         btnBgBmp.ctx.rect(0, 0, (btnLabel.width + BUTTONS_HORIZONTAL_PADDING), btnLabel.height)
         btnBgBmp.ctx.fill()
         const btnBg = game.make.sprite(
-          x,
-          y + idx * BUTTONS_MARGIN,
+          xAdjusted,
+          yAdjusted + idx * BUTTONS_MARGIN,
           btnBgBmp
         )
         btnGroup.add(btnBg)
