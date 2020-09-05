@@ -5,7 +5,6 @@ import BackButton from '../../components/BackButton'
 export default class extends Phaser.State {
   init () { }
   preload () {
-    this.load.image('contactsBg', './assets/images/contacts-bg.png')
   }
 
   create () {
