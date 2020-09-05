@@ -7,6 +7,9 @@ import ChoiceWheelHelper from './UI/ChoiceWheelHelper'
 import BootState from './states/Boot'
 import SplashState from './states/Splash'
 import GameState from './states/Game'
+import mainScreen from './states/phone/mainScreen'
+import settingsScreen from './states/phone/settingsScreen'
+import contactsScreen from './states/phone/contactsScreen'
 
 
 import config from './config'
@@ -22,6 +25,9 @@ class Game extends Phaser.Game {
     this.state.add('Boot', BootState, false)
     this.state.add('Splash', SplashState, false)
     this.state.add('Game', GameState, false)
+    this.state.add('MainPhoneScreen', mainScreen, false)
+    this.state.add('SettingsScreen', settingsScreen, false)
+    this.state.add('ContactsScreen', contactsScreen, false)
 
     // with Cordova with need to wait that the device is ready so we will call the Boot state in another file
     if (!window.cordova) {
