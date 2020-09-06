@@ -11,5 +11,8 @@ export default class extends Phaser.State {
     this.contactsBg = this.add.sprite(0, 0, 'contactsRinging')
     BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'back')
     BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'close')
+
+    this.game.camera.fade(0x000000, 1000)
+    this.game.camera.onFadeComplete.add(() => this.state.start('ContactsScreen'), this)
   }
 }
