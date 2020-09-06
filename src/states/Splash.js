@@ -63,6 +63,7 @@ export default class extends Phaser.State {
     this.load.image('fire', './assets/images/fire.png')
     this.load.image('room-trash', './assets/images/room-trash.png')
     this.load.image('room-trash-zoom', './assets/images/room-trash-zoom.png')
+    this.load.spritesheet('timer', './assets/images/timer.png', 150, 20)
   }
 
   create () {
