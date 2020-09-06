@@ -8,16 +8,20 @@ export default class extends Phaser.State {
   }
 
   create () {
-    this.phoneBg = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'phoneBg')
-    centerGameObjects([this.phoneBg])
+    this.phoneBg = this.add.sprite(0, 0, 'phoneBg')
 
-    this.settingsButton = new Button(this.game, 576, 380, 'settings', () => {
+    this.settingsButton = new Button(this.game, 576, 399, 'settings', () => {
       this.state.start('SettingsScreen')
     })
-    this.contactsButton = new Button(this.game, 576, 700, 'contacts', () => this.state.start('ContactsScreen'))
+    this.contactsButton = new Button(this.game, 576, 719, 'contacts', () => this.state.start('ContactsScreen'))
     this.game.add.existing(this.settingsButton)
     this.game.add.existing(this.contactsButton)
 
     BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'close')
   }
+
+//   render () {
+//     this.game.debug.spriteInfo(this.settingsButton, 32, 32)
+//     this.game.debug.spriteInfo(this.contactsButton, 102, 102)
+//   }
 }

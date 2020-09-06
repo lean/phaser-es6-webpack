@@ -38,6 +38,10 @@ export default class extends Phaser.State {
     this.load.image('phoneBg', './assets/images/phone-bg.png')
     this.load.image('settings', './assets/images/phone-settings.png')
     this.load.image('contacts', './assets/images/phone-contacts.png')
+    this.load.image('settingsPassButton', './assets/images/settings-pass-button.png')
+    this.load.image('settingsPass', './assets/images/setting-pass-1.png')
+    this.load.image('settingsPassInput', './assets/images/settings-pass-2.png')
+    this.load.image('safetyButton', './assets/images/safety-button.png')
   }
 
   create () {
