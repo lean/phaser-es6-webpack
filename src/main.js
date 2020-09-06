@@ -15,6 +15,7 @@ import logoutLaptopScreen from './states/laptop/logoutLaptopScreen'
 import settingsPassScreen from './states/phone/settingsPassScreen'
 import settingsPassScreenInput from './states/phone/settingsPassScreenInput'
 import ChoiceWheel from './UI/ChoiceWheelHelper'
+import TimerHelper from './UI/TimerHelper'
 
 import config from './config'
 
@@ -25,6 +26,11 @@ class Game extends Phaser.Game {
     const height = docElement.clientHeight > config.gameHeight ? config.gameHeight : docElement.clientHeight
 
     super(width, height, Phaser.CANVAS, 'content', null)
+
+    // Обработчик окончания таймера
+    this.onTimeEnd = () => {
+      console.log("Время вышло, менты вломились")
+    }
 
     this.state.add('Boot', BootState, false)
     this.state.add('Splash', SplashState, false)
@@ -45,3 +51,4 @@ class Game extends Phaser.Game {
 
 window.game = new Game()
 ChoiceWheel.setGame(window.game)
+TimerHelper.setGame(window.game)
