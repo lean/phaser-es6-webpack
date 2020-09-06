@@ -131,6 +131,16 @@ export default class extends State {
           });
         }
       );
+
+      this.game.add.button(
+        950,
+        30,
+        'button-game-start',
+        () => {
+          this.game.onTimeEnd()
+        },
+        this
+      );
       // // (props) => Overlay.show(props)
       // ChoiceWheel.openAt(
       //   gameObject.x + object.wheelOffsetX,

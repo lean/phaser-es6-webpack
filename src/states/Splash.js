@@ -1,5 +1,6 @@
 import Phaser from 'phaser'
 import { centerGameObjects } from '../utils'
+import TimerHelper from '../UI/TimerHelper';
 
 export default class extends Phaser.State {
   init () {}
@@ -55,9 +56,33 @@ export default class extends Phaser.State {
     this.load.image('room-object-disabled', 'assets/images/disabled.png')
     this.load.image('ringMomButton', './assets/images/ringMomButton.png')
     this.load.image('ringAdvButton', './assets/images/ringAdvButton.png')
+    this.load.image('bootscreen', './assets/images/bootscreen.png')
+    this.load.image('bootscreen-title', './assets/images/bootscreen-title.png')
+    this.load.image('bootscreen-text', './assets/images/bootscreen-text.png')
+    this.load.image('button-game-start', './assets/images/button-game-start.png')
   }
 
   create () {
-    this.state.start('Game')
+    const bg = new Phaser.Sprite(this.game, 0, 0, 'bootscreen');
+    this.game.add.existing(bg);
+
+    const title = new Phaser.Sprite(this.game, 200, 75, 'bootscreen-title');
+    this.game.add.existing(title);
+
+    const text = new Phaser.Sprite(this.game, 200, 200, 'bootscreen-text');
+    this.game.add.existing(text);
+
+    this.game.add.button(
+      200,
+      600,
+      'button-game-start',
+      () => {
+        this.state.start('Game'),
+        TimerHelper.startCounting();
+      },
+      this
+    );
+
+    // this.state.start('Game')
   }
 }

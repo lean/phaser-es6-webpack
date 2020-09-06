@@ -5,6 +5,7 @@ import Phaser from 'phaser'
 import BootState from './states/Boot'
 import SplashState from './states/Splash'
 import GameState from './states/Game'
+import GameOverState from './states/GameOver'
 import mainScreen from './states/phone/mainScreen'
 import settingsScreen from './states/phone/settingsScreen'
 import contactsScreen from './states/phone/contactsScreen'
@@ -30,6 +31,7 @@ class Game extends Phaser.Game {
     // Обработчик окончания таймера
     this.onTimeEnd = () => {
       console.log("Время вышло, менты вломились")
+      this.state.start('GameOver')
     }
 
     this.state.add('Boot', BootState, false)
@@ -44,6 +46,7 @@ class Game extends Phaser.Game {
     this.state.add('LogoutLaptopScreen', logoutLaptopScreen, false)
     this.state.add('SettingsPassScreen', settingsPassScreen, false)
     this.state.add('SettingsPassScreenInput', settingsPassScreenInput, false)
+    this.state.add('GameOver', GameOverState, false)
 
     this.state.start('Boot')
   }
