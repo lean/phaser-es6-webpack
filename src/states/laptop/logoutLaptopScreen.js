@@ -1,4 +1,4 @@
-import Phaser, { Button } from 'phaser'
+import Phaser from 'phaser'
 import { centerGameObjects } from '../../utils'
 import BackButton from '../../components/BackButton'
 
