@@ -41,6 +41,6 @@ export default class extends Phaser.State {
   }
 
   create () {
-    this.state.start('MainLaptopScreen')
+    this.state.start('Game')
   }
 }
