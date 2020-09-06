@@ -16,6 +16,9 @@ export default class extends Phaser.State {
     this.game.objects.rings = [];
     this.game.objects.crypted = [];
     this.game.objects.logout = [];
+    this.game.objects.deleted = [];
+    this.game.objects.isCrypting = false;
+    this.game.objects.cryptoTimer = 0;
 
     this.game.objects.isDropped = (name) => this.game.objects.dropped.includes(name);
     this.game.objects.isInTrash = (name) => this.game.objects.inTrash.includes(name);
@@ -23,6 +26,7 @@ export default class extends Phaser.State {
     this.game.objects.isPhoned = (name) => this.game.objects.rings.includes(name);
     this.game.objects.isCrypted = (name) => this.game.objects.crypted.includes(name);
     this.game.objects.isLogout = (name) => this.game.objects.logout.includes(name);
+    this.game.objects.isDeleted = (name) => this.game.objects.deleted.includes(name);
 
     this.game.objects.isUnavaliable = (name) => this.game.objects.isDropped(name) || this.game.objects.isInTrash(name) || this.game.objects.isBroken(name);
 

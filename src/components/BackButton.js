@@ -1,7 +1,7 @@
 import { Button } from 'phaser'
 
 const BackButton = {
-  addButton: (game, state, prevScreen, name) => {
+  addButton: (game, state, prevScreen, name, callback) => {
     let x = 50
     let y = 48
 
@@ -10,7 +10,10 @@ const BackButton = {
       y = 48
     }
 
-    const button = new Button(game, x, y, name, () => state.start(prevScreen))
+    const button = new Button(game, x, y, name, () => {
+      callback && callback()
+      state.start(prevScreen)
+    })
     game.add.existing(button)
   }
 }
