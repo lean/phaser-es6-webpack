@@ -6,11 +6,17 @@ const BUTTONS_HORIZONTAL_PADDING = 18
 const TRIANGLE_WIDTH = 20
 
 class ChoiceWheel extends Phaser.Sprite {
-  constructor (game, x, y, options) {
+  constructor (game, x, y, options, position) {
     super(game, x, y)
-    const ltr = x > game.width / 2
     this.btnGroups = []
     this.onSelect = new Signal()
+    let ltr = x > game.width / 2
+
+    console.log(position)
+    if (position) {
+      ltr = position === 'ltr'
+    }
+
     options.forEach((option, idx) => {
       if(!ltr) {
         const xAdjusted = x + TRIANGLE_WIDTH + BUTTONS_HORIZONTAL_PADDING / 2,
