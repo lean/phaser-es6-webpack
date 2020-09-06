@@ -26,7 +26,7 @@ export default class extends Phaser.State {
         this.veracrypt.y + 50,
         [
           { title: 'зашифровать компьютер', action: () => this.game.objects.crypted.push('laptop') },
-          { title: 'удалить приложение', action: () => this.game.objects.logout.push('vk') }
+          { title: 'удалить приложение', action: () => this.game.objects.deleted.push('veracrypt') }
         ],
         'rtl'
       ).then((option) => {
