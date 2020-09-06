@@ -8,10 +8,10 @@ export default class extends Phaser.State {
   }
 
   create () {
-    this.settingsBg = this.add.sprite(0, 0, 'settingsBg')
+    this.settingsPassBg = this.add.sprite(0, 0, 'settingsPass')
 
-    this.settingsPassButton = new Button(this.game, 551, 675, 'safetyButton', () => {
-      this.state.start('SettingsPassScreen')
+    this.settingsPassButton = new Button(this.game, 551, 243, 'settingsPassButton', () => {
+      this.state.start('SettingsPassScreenInput')
     })
     this.game.add.existing(this.settingsPassButton)
 

@@ -11,6 +11,8 @@ import contactsScreen from './states/phone/contactsScreen'
 import mainLaptopScreen from './states/laptop/mainLaptopScreen'
 import browserLaptopScreen from './states/laptop/browserLaptopScreen'
 import logoutLaptopScreen from './states/laptop/logoutLaptopScreen'
+import settingsPassScreen from './states/phone/settingsPassScreen'
+import settingsPassScreenInput from './states/phone/settingsPassScreenInput'
 
 import config from './config'
 
@@ -31,6 +33,8 @@ class Game extends Phaser.Game {
     this.state.add('MainLaptopScreen', mainLaptopScreen, false)
     this.state.add('BrowserLaptopScreen', browserLaptopScreen, false)
     this.state.add('LogoutLaptopScreen', logoutLaptopScreen, false)
+    this.state.add('SettingsPassScreen', settingsPassScreen, false)
+    this.state.add('SettingsPassScreenInput', settingsPassScreenInput, false)
 
     // with Cordova with need to wait that the device is ready so we will call the Boot state in another file
     if (!window.cordova) {

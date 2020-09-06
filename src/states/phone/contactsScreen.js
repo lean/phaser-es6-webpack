@@ -8,8 +8,7 @@ export default class extends Phaser.State {
   }
 
   create () {
-    this.contactsBg = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'contactsBg')
-    centerGameObjects([this.settingsBg])
+    this.contactsBg = this.add.sprite(0, 0, 'contactsBg')
     BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'back')
     BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'close')
   }
