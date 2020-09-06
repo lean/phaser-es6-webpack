@@ -55,6 +55,7 @@ export default class extends Phaser.State {
     this.load.image('room-object-disabled', 'assets/images/disabled.png')
     this.load.image('ringMomButton', './assets/images/ringMomButton.png')
     this.load.image('ringAdvButton', './assets/images/ringAdvButton.png')
+    this.load.spritesheet('timer', './assets/images/timer.png', 150, 20)
   }
 
   create () {
