@@ -17,7 +17,7 @@ export default class extends Phaser.State {
     this.game.add.existing(this.settingsButton)
     this.game.add.existing(this.contactsButton)
 
-    BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'close')
+    BackButton.addButton(this.game, this.state, 'Game', 'close')
   }
 
 //   render () {
