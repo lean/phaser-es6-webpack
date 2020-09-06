@@ -26,9 +26,9 @@ export const mainState = {
     {
       name: 'room-laptop',
       image: 'room-laptop-fade',
-      imageZoom: 'room-laptop-fade',
-      x: 325,
-      y: 427,
+      imageZoom: 'room-laptop-zoom',
+      x: 285,
+      y: 413,
       wheelOffsetX: 100,
       wheelOffsetY: 50,
       options: [
@@ -52,8 +52,8 @@ export const mainState = {
     },
     {
       name: 'room-phone',
-      image: 'room-phone',
-      imageZoom: 'room-phone',
+      image: 'room-phone-fade',
+      imageZoom: 'room-phone-zoom',
       x: 328,
       y: 533,
       wheelOffsetX: 75,
@@ -79,10 +79,10 @@ export const mainState = {
     },
     {
       name: 'room-flag',
-      image: 'room-flag',
-      imageZoom: 'room-flag',
-      x: 250,
-      y: 200,
+      image: 'room-flag-fade',
+      imageZoom: 'room-flag-zoom',
+      x: 231,
+      y: 193,
       wheelOffsetX: 120,
       wheelOffsetY: 100,
       options: [
@@ -102,11 +102,11 @@ export const mainState = {
     },
     {
       name: 'room-calendar',
-      image: 'room-calendar',
-      imageZoom: 'room-calendar',
-      x: 1230,
-      y: 270,
-      wheelOffsetX: -100,
+      image: 'room-calendar-fade',
+      imageZoom: 'room-calendar-zoom',
+      x: 1227,
+      y: 278,
+      wheelOffsetX: -200,
       wheelOffsetY: 100,
       options: [
         {
@@ -125,11 +125,11 @@ export const mainState = {
     },
     {
       name: 'room-sticker',
-      image: 'room-sticker',
-      imageZoom: 'room-sticker',
-      x: 1160,
-      y: 470,
-      wheelOffsetX: -75,
+      image: 'room-sticker-fade',
+      imageZoom: 'room-sticker-zoom',
+      x: 1156,
+      y: 466,
+      wheelOffsetX: -175,
       wheelOffsetY: 10,
       options: [
         {
