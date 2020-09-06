@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
 
 // Сколько времени отсчитывает таймер
-const TIME_IN_SECONDS = 5 * 60
+const TIME_IN_SECONDS = 1 * 60
 
 class TimerHelper {
   constructor() {
@@ -56,13 +56,17 @@ class TimerHelper {
     this.game = game;
   }
 
-  addTimerToCurrentState() {
+  addTimerToCurrentState({ x, y, fill } = {}) {
+    const _x = x || 175;
+    const _y = y || 25;
+    const _fill = fill || '#000000';
     this.currentTimerText = this.game.add.text(
-      100, 
-      25, 
-      this._getFormattedTime(), 
+      _x,
+      _y,
+      this._getFormattedTime(),
       {
-        fill: '#ffffff'
+        fill: _fill,
+        fontSize: '50px'
       }
     )
   }

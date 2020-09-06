@@ -1,10 +1,13 @@
 import { Sprite, Signal } from 'phaser'
 
 export default class extends Sprite {
-  constructor (game, x, y, image, options) {
+  constructor (game, x, y, image, options, disabledTexture) {
     super(game, x, y, image)
 
     this.inputEnabled = true
+    this.disabledTexture = disabledTexture
+    this.isSoftDisabled = false;
+
     this.alpha = 0
     this.onSelect = new Signal()
     this.events.onInputDown.add(() => {
@@ -13,11 +16,23 @@ export default class extends Sprite {
     }, this)
   }
 
+  softDisable () {
+    this.inputEnabled = false
+    this.loadTexture('room-object-disabled')
+    this.scale.setTo(0.25)
+    this.alpha = 1
+    this.isSoftDisabled = true;
+  }
+
   update () {
-    if (this.input.pointerOver()) {
+    if (this.isSoftDisabled) {
       this.alpha = 1
     } else {
-      this.alpha = 0
-    };
+      if (this.input.pointerOver()) {
+        this.alpha = 1
+      } else {
+        this.alpha = 0
+      };
+    }
   }
 }

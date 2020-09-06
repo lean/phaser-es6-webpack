@@ -1,8 +1,9 @@
 /* globals __DEV__ */
 import { State, Sprite, Text } from 'phaser'
 import Selectable from '../components/Selectable'
-// import Overlay from '../sprites/Overlay'
+import Overlay from '../sprites/Overlay'
 import ChoiceWheel from '../UI/ChoiceWheelHelper'
+import TimerHelper from '../UI/TimerHelper'
 import {
   mainState,
   ROOM_LAPTOP_OPEN,
@@ -38,15 +39,15 @@ export default class extends State {
         break;
       case ROOM_LAPTOP_BROKE:
         this.game.objects.broken.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       case ROOM_LAPTOP_TO_TRASH:
         this.game.objects.inTrash.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       case ROOM_LAPTOP_DROP:
         this.game.objects.dropped.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       
       case ROOM_PHONE_OPEN:
@@ -54,54 +55,54 @@ export default class extends State {
         break;
       case ROOM_PHONE_BROKE:
         this.game.objects.broken.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       case ROOM_PHONE_TO_TRASH:
         this.game.objects.inTrash.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       case ROOM_PHONE_DROP:
         this.game.objects.dropped.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
 
       case ROOM_FLAG_BROKE:
         this.game.objects.broken.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       case ROOM_FLAG_TO_TRASH:
         this.game.objects.inTrash.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       case ROOM_FLAG_DROP:
         this.game.objects.dropped.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
 
       case ROOM_CALENDAR_BROKE:
         this.game.objects.broken.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       case ROOM_CALENDAR_TO_TRASH:
         this.game.objects.inTrash.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       case ROOM_CALENDAR_DROP:
         this.game.objects.dropped.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
 
       case ROOM_STICKER_BROKE:
         this.game.objects.broken.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       case ROOM_STICKER_TO_TRASH:
         this.game.objects.inTrash.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
       case ROOM_STICKER_DROP:
         this.game.objects.dropped.push(object.name);
-        object.destroy();
+        object.softDisable();
         break;
     }
   }
@@ -114,28 +115,40 @@ export default class extends State {
     mainState.objects.map((object) => {
       const gameObject = new Selectable(this.game, object.x, object.y, object.image)
       gameObject.name = object.name
-      if (this.game.objects.isUnavaliable(object.name)) {
-        gameObject.destroy();
-        return null;
-      }
       this.game.add.existing(gameObject);
-      gameObject.onSelect.add(
-        // (props) => Overlay.show(props)
-        (props) => ChoiceWheel.openAt(
-          gameObject.x + object.wheelOffsetX,
-          gameObject.y + object.wheelOffsetY,
-          object.options,
-        ).then((option) => this.makeChoice(option.choice, gameObject))
+      if (this.game.objects.isUnavaliable(object.name)) {
+        gameObject.softDisable();
+      }
+      gameObject.onSelect.add( 
+        (props) =>  {
+          if (this.bgOverlay) this.bgOverlay.destroy()
+          this.bgOverlay = new Overlay(this.game, 0, 0);
+          this.game.add.existing(this.bgOverlay);
+          this.bgOverlay.show({
+            image: object.imageZoom,
+            options: object.options,
+            cb: (option) => this.makeChoice(option.choice, gameObject),
+          });
+        }
       );
+      // // (props) => Overlay.show(props)
+      // ChoiceWheel.openAt(
+      //   gameObject.x + object.wheelOffsetX,
+      //   gameObject.y + object.wheelOffsetY,
+      //   object.options,
+      // ).then((option) => this.makeChoice(option.choice, gameObject))
+      // );
       // c.onSelect.add((props) => bgOverlay.show(props))
-    })
+    // })
 
     // this.debugged = phone
     // this.debugged.input.enableDrag(true);
 
     // const bgOverlay = new Overlay(this.game, 0, 0);
     // this.game.add.existing(bgOverlay);
+    })
 
+    TimerHelper.addTimerToCurrentState()
   }
 
   render() {
