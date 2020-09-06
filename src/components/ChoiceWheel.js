@@ -12,7 +12,6 @@ class ChoiceWheel extends Phaser.Sprite {
     this.onSelect = new Signal()
     let ltr = x > game.width / 2
 
-    console.log(position)
     if (position) {
       ltr = position === 'ltr'
     }
