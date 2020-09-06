@@ -15,12 +15,12 @@ class ChoiceWheelHelper {
     this.game = game
   }
 
-  openAt(x, y, options) {
+  openAt(x, y, options, position) {
     return new Promise((resolve) => {
       if(this.wheelVisible) {
         this._closeWheel()
       }
-      const wheel = new ChoiceWheelCmp(this.game, x, y, options)
+      const wheel = new ChoiceWheelCmp(this.game, x, y, options, position)
       wheel.onSelect.add(selectedOption => {
         resolve(selectedOption)
         this._closeWheel()
