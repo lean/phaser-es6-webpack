@@ -22,6 +22,7 @@ class TimerHelper {
   _onTimeEnd() {
     this._stopTimer()
     // Что вызывать когда время выходит
+    this.game.result = 'timeout'
     this.game.onTimeEnd()
   }
 

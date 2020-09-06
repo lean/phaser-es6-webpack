@@ -21,6 +21,8 @@ export const ROOM_STICKER_BROKE = Symbol('ROOM_STICKER_BROKE')
 export const ROOM_STICKER_TO_TRASH = Symbol('ROOM_STICKER_TO_TRASH')
 export const ROOM_STICKER_DROP = Symbol('ROOM_STICKER_DROP')
 
+export const ROOM_TRASH_FIRE = Symbol('ROOM_TRASH_FIRE')
+
 export const mainState = {
   objects: [
     {
@@ -148,6 +150,21 @@ export const mainState = {
           title: 'Выкинуть в окно',
           choice: ROOM_STICKER_DROP,
         }
+      ]
+    },
+    {
+      name: 'room-trash',
+      image: 'room-trash',
+      imageZoom: 'room-trash-zoom',
+      x: 700,
+      y: 480,
+      wheelOffsetX: -200,
+      wheelOffsetY: 100,
+      options: [
+        {
+          title: 'Поджечь',
+          choice: ROOM_TRASH_FIRE,
+        },
       ]
     },
   ]

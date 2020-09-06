@@ -24,6 +24,7 @@ import {
   ROOM_STICKER_BROKE,
   ROOM_STICKER_TO_TRASH,
   ROOM_STICKER_DROP,
+  ROOM_TRASH_FIRE,
 } from '../configMainState'
 
 export default class extends State {
@@ -104,6 +105,11 @@ export default class extends State {
         this.game.objects.dropped.push(object.name);
         object.softDisable();
         break;
+      
+      case ROOM_TRASH_FIRE:
+        this.game.result = 'fire';
+        this.game.onTimeEnd();
+        break;
     }
   }
 
@@ -111,6 +117,9 @@ export default class extends State {
     const bg = new Sprite(this.game, 0, 0, 'room');
     this.game.add.existing(bg);
     // this.bgOverlay = new Overlay
+
+    const trash = new Sprite(this.game, 700, 480, 'room-trash');
+    this.game.add.existing(trash);
 
     mainState.objects.map((object) => {
       const gameObject = new Selectable(this.game, object.x, object.y, object.image)
@@ -137,6 +146,7 @@ export default class extends State {
         30,
         'button-game-start',
         () => {
+          this.game.result = 'open'
           this.game.onTimeEnd()
         },
         this

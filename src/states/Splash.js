@@ -60,6 +60,9 @@ export default class extends Phaser.State {
     this.load.image('bootscreen-title', './assets/images/bootscreen-title.png')
     this.load.image('bootscreen-text', './assets/images/bootscreen-text.png')
     this.load.image('button-game-start', './assets/images/button-game-start.png')
+    this.load.image('fire', './assets/images/fire.png')
+    this.load.image('room-trash', './assets/images/room-trash.png')
+    this.load.image('room-trash-zoom', './assets/images/room-trash-zoom.png')
   }
 
   create () {
