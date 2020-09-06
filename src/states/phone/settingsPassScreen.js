@@ -12,10 +12,11 @@ export default class extends Phaser.State {
 
     this.settingsPassButton = new Button(this.game, 551, 243, 'settingsPassButton', () => {
       this.state.start('SettingsPassScreenInput')
+      this.game.objects.crypted.push('phone')
     })
     this.game.add.existing(this.settingsPassButton)
 
     BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'back')
-    BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'close')
+    BackButton.addButton(this.game, this.state, 'Game', 'close')
   }
 }

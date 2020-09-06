@@ -8,6 +8,7 @@ import GameState from './states/Game'
 import mainScreen from './states/phone/mainScreen'
 import settingsScreen from './states/phone/settingsScreen'
 import contactsScreen from './states/phone/contactsScreen'
+import contactsRingingScreen from './states/phone/contactsRingingScreen'
 import mainLaptopScreen from './states/laptop/mainLaptopScreen'
 import browserLaptopScreen from './states/laptop/browserLaptopScreen'
 import logoutLaptopScreen from './states/laptop/logoutLaptopScreen'
@@ -37,6 +38,7 @@ class Game extends Phaser.Game {
     this.state.add('MainPhoneScreen', mainScreen, false)
     this.state.add('SettingsScreen', settingsScreen, false)
     this.state.add('ContactsScreen', contactsScreen, false)
+    this.state.add('ContactsRingingScreen', contactsRingingScreen, false)
     this.state.add('MainLaptopScreen', mainLaptopScreen, false)
     this.state.add('BrowserLaptopScreen', browserLaptopScreen, false)
     this.state.add('LogoutLaptopScreen', logoutLaptopScreen, false)
