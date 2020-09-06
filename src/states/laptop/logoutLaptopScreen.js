@@ -12,6 +12,6 @@ export default class extends Phaser.State {
     this.laptopBrowser = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'laptopLogout')
     centerGameObjects([this.laptopBrowser])
 
-    BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'close')
+    BackButton.addButton(this.game, this.state, 'Game', 'close')
   }
 }

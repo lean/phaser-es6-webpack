@@ -10,6 +10,9 @@ export default class extends Phaser.State {
     this.settingsPassBg = this.add.sprite(0, 0, 'settingsPassInput')
 
     BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'back')
-    BackButton.addButton(this.game, this.state, 'MainPhoneScreen', 'close')
+    BackButton.addButton(this.game, this.state, 'Game', 'close')
+
+    this.game.camera.fade(0x000000, 1000)
+    this.game.camera.onFadeComplete.add(() => this.state.start('SettingsPassScreen'), this)
   }
 }
